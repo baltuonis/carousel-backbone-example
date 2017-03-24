@@ -11,7 +11,7 @@ let CarouselView = Backbone.View.extend({
         'click .carousel-next': 'next',
     },
     initialize: function(options) {
-        // Render when collection has been loaded/updated
+        // Call Render when collection has been loaded/updated
         this.listenTo(this.collection, 'sync', this.render);
         this.collection.fetch();
     },
@@ -43,6 +43,7 @@ let CarouselView = Backbone.View.extend({
     },
     moveBy: function(vector) {
         let maxLenght = this.collection.length;
+        // If we are hitting the boundaries - just move as much as possible
         if (vector > 0) {
             if ((vector + this.currentIndex + this.maxVisibleCount) > maxLenght) {
                 this.currentIndex = (maxLenght - this.maxVisibleCount);
