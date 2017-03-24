@@ -1,0 +1,21 @@
+<div class="carousel-container">
+  <div class="blocks columns">
+    <% _.map(imgBlocks, function(item) { %>
+      <div class="column">
+        <div class="block-title">
+          <strong>
+              <%=item.get('title')%>
+            </strong>
+        </div>
+        <img src="<%=item.getRandomImgUrl()%>" alt="" />
+      </div>
+      <% }) %>
+  </div>
+  <div class="container">
+    <button class="button is-primary is-medium carousel-prev" <% if (!canGoPrev) { %>disabled
+      <% } %> > Previous
+    </button>
+    <button class="button is-primary is-medium carousel-next" <% if (!canGoNext) { %>disabled
+      <% } %>>Next</button>
+  </div>
+</div>

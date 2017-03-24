@@ -1,8 +1,11 @@
 import 'backbone';
+import template from '../templates/carousel.html';
+
 
 let CarouselView = Backbone.View.extend({
     el: '#carousel-view',
-    template: _.template($('#carousel-template').html()),
+    // template: _.template($('#carousel-template').html()),
+    template: template,
     currentIndex: 0, // First visible block index
     maxVisibleCount: 4, // Max visible blocks at one moment
     stepSize: 4, // By how many blocks move
